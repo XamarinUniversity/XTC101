@@ -7,10 +7,10 @@ namespace Phoneword.Core
     {
         public static string ToNumber(string raw)
         {
-			if (string.IsNullOrWhiteSpace(raw))
+            if (string.IsNullOrWhiteSpace(raw))
                 return string.Empty;
 
-			var newNumber = new StringBuilder();
+            var newNumber = new StringBuilder();
             foreach (var c in raw.ToUpperInvariant())
             {
                 if (" -0123456789".Contains(c))
@@ -19,17 +19,17 @@ namespace Phoneword.Core
                     var result = TranslateToNumber(c);
                     if (result != null)
                         newNumber.Append(result);
-                }    
+                }
                 // otherwise we've skipped a non-numeric char
             }
 
             return newNumber.ToString();
         }
 
-		static bool Contains (this string keyString, char c)
-		{
-			return keyString.IndexOf(c) >= 0;
-		}
+        static bool Contains (this string keyString, char c)
+        {
+            return keyString.IndexOf(c) >= 0;
+        }
 
         static int? TranslateToNumber(char c)
         {

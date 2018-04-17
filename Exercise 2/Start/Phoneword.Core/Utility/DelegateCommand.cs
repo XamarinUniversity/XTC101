@@ -6,15 +6,15 @@ namespace Phoneword.Core
     /// <summary>
     /// A simple command to delegate forwarding class
     /// </summary>
-	public sealed class DelegateCommand : ICommand
+    public sealed class DelegateCommand : ICommand
     {
-		readonly Action<object> command;
-		readonly Func<object, bool> canExecute;
+        readonly Action<object> command;
+        readonly Func<object, bool> canExecute;
 
         /// <summary>
         /// Event that is raised when the current state for our command has changed.
         /// </summary>
-        public event EventHandler CanExecuteChanged = delegate { }; 
+        public event EventHandler CanExecuteChanged = delegate { };
 
         /// <summary>
         /// Constructor
@@ -42,7 +42,7 @@ namespace Phoneword.Core
             if (command == null)
                 throw new ArgumentNullException("command", "Command cannot be null.");
 
-			this.command = delegate { command(); };
+            this.command = delegate { command(); };
             if (test != null)
                 this.canExecute = delegate { return test(); };
         }
@@ -56,8 +56,8 @@ namespace Phoneword.Core
         {
             if (command == null)
                 throw new ArgumentNullException("command", "Command cannot be null.");
-            
-			this.command = command;
+
+            this.command = command;
             this.canExecute = test;;
         }
 
@@ -89,7 +89,7 @@ namespace Phoneword.Core
         /// <param name="parameter">Data used by the command.  If the command does not require data to be passed, this object can be set to null.</param>
         public void Execute(object parameter)
         {
-			this.command(parameter);
+            this.command(parameter);
         }
     }
 }

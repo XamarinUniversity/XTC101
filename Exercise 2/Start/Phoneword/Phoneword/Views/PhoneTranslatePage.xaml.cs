@@ -18,9 +18,9 @@ namespace Phoneword.UI.XamForms.Views
 
             Title = "Phoneword";
 
-			_viewModel = new PhoneTranslateViewModel(App.AppViewModel);
+            _viewModel = new PhoneTranslateViewModel(App.AppViewModel);
 
-            _viewModel.CallFailed = async (phoneNumber) => 
+            _viewModel.CallFailed = async (phoneNumber) =>
             {
                 await DisplayAlert("Could not call", "Could not call '" + phoneNumber + "'.", "Close");
             };

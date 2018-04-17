@@ -16,7 +16,7 @@
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
-    <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
     <AndroidSupportedAbis>armeabi,armeabi-v7a,x86</AndroidSupportedAbis>
     <MandroidI18n />
     <NuGetPackageImportStamp>
@@ -182,7 +182,7 @@
     <Content Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PhonewordXaml\Phoneword.UI.XamForms.csproj">
+    <ProjectReference Include="..\Phoneword\Phoneword.csproj">
       <Project>{AE367F7F-F6C0-4C6C-B0BB-C24D0EF668FE}</Project>
       <Name>Phoneword.UI.XamForms</Name>
     </ProjectReference>
@@ -191,13 +191,20 @@
       <Name>Phoneword.Core</Name>
     </ProjectReference>
   </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+     Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
   <ItemGroup>
     <XamarinComponentReference Include="xamandroidsupportv13-18">
+      <Version>20.0.0.4</Version>
       <Visible>False</Visible>
-      <Version>22.2.0.0</Version>
     </XamarinComponentReference>
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Android.Support.v7.CardView.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.v7.CardView.targets" Condition="Exists('..\..\packages\Xamarin.Android.Support.v7.CardView.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.v7.CardView.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
@@ -241,11 +248,4 @@
   <Import Project="..\..\packages\Xamarin.Android.Support.Design.25.1.1\build\MonoAndroid70\Xamarin.Android.Support.Design.targets" Condition="Exists('..\..\packages\Xamarin.Android.Support.Design.25.1.1\build\MonoAndroid70\Xamarin.Android.Support.Design.targets')" />
   <Import Project="..\..\packages\Xamarin.Android.Support.v7.MediaRouter.25.1.1\build\MonoAndroid70\Xamarin.Android.Support.v7.MediaRouter.targets" Condition="Exists('..\..\packages\Xamarin.Android.Support.v7.MediaRouter.25.1.1\build\MonoAndroid70\Xamarin.Android.Support.v7.MediaRouter.targets')" />
   <Import Project="..\..\packages\Xamarin.Forms.2.4.0.282\build\netstandard1.0\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.4.0.282\build\netstandard1.0\Xamarin.Forms.targets')" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-     Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>

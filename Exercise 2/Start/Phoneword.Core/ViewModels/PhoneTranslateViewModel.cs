@@ -30,11 +30,11 @@ namespace Phoneword.Core
             get { return _callHistoryCommand; }
         }
 
-		MainViewModel _appViewModel;
+        MainViewModel _appViewModel;
 
-		public PhoneTranslateViewModel(MainViewModel appViewModel)
+        public PhoneTranslateViewModel(MainViewModel appViewModel)
         {
-			_appViewModel = appViewModel;
+            _appViewModel = appViewModel;
 
             _translateCommand = new DelegateCommand(DoTranslate, () => !String.IsNullOrEmpty(PhoneNumberText));
             _callCommand = new DelegateCommand(DoCall, () => !String.IsNullOrEmpty(TranslatedNumber));
@@ -93,16 +93,16 @@ namespace Phoneword.Core
         }
 
         public Action<string> CallFailed = delegate { };
- 
+
         private void DoCall()
         {
             bool couldCall = false;
 
             try
             {
-				_appViewModel.LogPhoneNumber (_translatedNumber);
+                _appViewModel.LogPhoneNumber (_translatedNumber);
 
-				_appViewModel.Dialer.Dial(_translatedNumber);
+                _appViewModel.Dialer.Dial(_translatedNumber);
             }
             catch (Exception)
             {

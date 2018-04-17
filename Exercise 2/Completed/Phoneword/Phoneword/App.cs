@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Phoneword.Core;
+﻿using Phoneword.Core;
 using Xamarin.Forms;
 using Phoneword.UI.XamForms.Views;
 
@@ -14,7 +10,7 @@ namespace Phoneword.UI.XamForms
 
         public App()
         {
-            var dialer = DependencyService.Get<IDialer> ();
+            var dialer = DependencyService.Get<IDialer>();
             AppViewModel = new MainViewModel(dialer);
             MainPage = new NavigationPage(new PhoneTranslatePage());
         }

@@ -104,7 +104,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PhonewordXaml\Phoneword.UI.XamForms.csproj">
+    <ProjectReference Include="..\Phoneword\Phoneword.csproj">
       <Project>{AE367F7F-F6C0-4C6C-B0BB-C24D0EF668FE}</Project>
       <Name>Phoneword.UI.XamForms</Name>
     </ProjectReference>

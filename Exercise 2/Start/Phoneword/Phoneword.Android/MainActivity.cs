@@ -12,7 +12,7 @@ using Phoneword.UI.XamForms;
 
 namespace PhonewordXaml.Droid
 {
-	[Activity(Label="Phoneword", Icon="@drawable/translate", MainLauncher=true)]
+    [Activity(Label="Phoneword", Icon="@drawable/translate", MainLauncher=true)]
     public class MainActivity : FormsApplicationActivity
     {
         protected override void OnCreate(Bundle bundle)

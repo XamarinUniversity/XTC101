@@ -9,15 +9,15 @@ namespace Phoneword.Core
 {
     public class MainViewModel : ViewModel
     {
-		public IDialer Dialer {
-			get;
-			set;
-		}
+        public IDialer Dialer {
+            get;
+            set;
+        }
 
-		public MainViewModel(IDialer dialer)
-		{
-			Dialer = dialer;
-		}
+        public MainViewModel(IDialer dialer)
+        {
+            Dialer = dialer;
+        }
 
         ObservableCollection<string> _dialledNumbers = new ObservableCollection<string>();
 
