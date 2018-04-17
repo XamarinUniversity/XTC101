@@ -11,39 +11,39 @@ using PhonewordXaml.Droid;
 
 namespace PhonewordXaml.Droid
 {
-	public class PhoneDialer : IDialer
-	{
-		public static Activity Activity { get; set; }
+    public class PhoneDialer : IDialer
+    {
+        public static Activity Activity { get; set; }
 
-		public bool Dial(string number)
-		{
-			if (Activity == null)
-				return false;
+        public bool Dial(string number)
+        {
+            if (Activity == null)
+                return false;
 
-			var intent = new Intent(Intent.ActionCall);
-			intent.SetData(Android.Net.Uri.Parse("tel:" + number));
+            var intent = new Intent(Intent.ActionCall);
+            intent.SetData(Android.Net.Uri.Parse("tel:" + number));
 
-			if (IsIntentAvailable(Activity, intent)) {
-				Activity.StartActivity(intent);
-				return true;
-			}
+            if (IsIntentAvailable(Activity, intent)) {
+                Activity.StartActivity(intent);
+                return true;
+            }
 
-			return false;
-		}
+            return false;
+        }
 
-		public static bool IsIntentAvailable(Context context, Intent intent)
-		{
-			var packageManager = context.PackageManager;
+        public static bool IsIntentAvailable(Context context, Intent intent)
+        {
+            var packageManager = context.PackageManager;
 
-			var list = packageManager.QueryIntentServices(intent, 0)
-				.Union(packageManager.QueryIntentActivities(intent, 0));
-			if (list.Any())
-				return true;
+            var list = packageManager.QueryIntentServices(intent, 0)
+                .Union(packageManager.QueryIntentActivities(intent, 0));
+            if (list.Any())
+                return true;
 
-			var mgr = TelephonyManager.FromContext(context);
-			return mgr.PhoneType != PhoneType.None;
-		}
-	}
+            var mgr = TelephonyManager.FromContext(context);
+            return mgr.PhoneType != PhoneType.None;
+        }
+    }
 
 }
 

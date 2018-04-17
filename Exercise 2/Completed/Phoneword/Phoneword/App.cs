@@ -14,7 +14,7 @@ namespace Phoneword.UI.XamForms
 
         public App()
         {
-			var dialer = DependencyService.Get<IDialer> ();
+            var dialer = DependencyService.Get<IDialer> ();
             AppViewModel = new MainViewModel(dialer);
             MainPage = new NavigationPage(new PhoneTranslatePage());
         }

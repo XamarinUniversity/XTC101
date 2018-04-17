@@ -4,50 +4,50 @@ using Phoneword.UnitTests.Core.Mocks;
 
 namespace Phoneword.UnitTests.Core
 {
-	[TestFixture]
-	public class TestPhoneTranslateViewModel
-	{
-		MainViewModel appViewModel;
+    [TestFixture]
+    public class TestPhoneTranslateViewModel
+    {
+        MainViewModel appViewModel;
         MockDialer dialer;
-		PhoneTranslateViewModel translateViewModel;
+        PhoneTranslateViewModel translateViewModel;
 
-		[SetUp]
-		public void SetupViewModels()
-		{
+        [SetUp]
+        public void SetupViewModels()
+        {
             dialer = new MockDialer();
-			appViewModel = new MainViewModel (dialer);
-			translateViewModel = new PhoneTranslateViewModel (appViewModel);
-		}
+            appViewModel = new MainViewModel (dialer);
+            translateViewModel = new PhoneTranslateViewModel (appViewModel);
+        }
 
-		[Test]
-		public void TestNoTranslateOnEmptyText ()
-		{
-			translateViewModel.PhoneNumberText = string.Empty;
+        [Test]
+        public void TestNoTranslateOnEmptyText ()
+        {
+            translateViewModel.PhoneNumberText = string.Empty;
             Assert.IsFalse (translateViewModel.TranslateCommand.CanExecute (null));
-		}
+        }
 
-		[Test]
-		public void TestPhoneNumberAllowsForTranslation ()
-		{
-			translateViewModel.PhoneNumberText = "1-855-XAMARIN";
+        [Test]
+        public void TestPhoneNumberAllowsForTranslation ()
+        {
+            translateViewModel.PhoneNumberText = "1-855-XAMARIN";
             Assert.IsTrue(translateViewModel.TranslateCommand.CanExecute(null));
-		}
+        }
 
-		[Test]
-		public void TestPhoneNumberTranslates ()
-		{
-			appViewModel.DialledNumbers.Clear ();
+        [Test]
+        public void TestPhoneNumberTranslates ()
+        {
+            appViewModel.DialledNumbers.Clear ();
 
             translateViewModel.PhoneNumberText = "1-855-XAMARIN";
-			translateViewModel.TranslateCommand.Execute (null);
-			translateViewModel.CallCommand.Execute (null);
+            translateViewModel.TranslateCommand.Execute (null);
+            translateViewModel.CallCommand.Execute (null);
 
             Assert.IsTrue (dialer.CalledDialer);
             Assert.AreEqual (dialer.LastDialedNumber, "1-855-9262746");
 
-			Assert.IsTrue (appViewModel.DialledNumbers.Count == 1 && 
-				appViewModel.DialledNumbers[0] == "1-855-9262746");
-		}
+            Assert.IsTrue (appViewModel.DialledNumbers.Count == 1 &&
+                appViewModel.DialledNumbers[0] == "1-855-9262746");
+        }
 
         [Test]
         public void TestDialerCalls()
