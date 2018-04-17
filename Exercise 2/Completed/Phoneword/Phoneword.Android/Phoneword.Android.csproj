@@ -16,7 +16,7 @@
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
-    <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
     <AndroidSupportedAbis>armeabi,armeabi-v7a,x86</AndroidSupportedAbis>
     <MandroidI18n />
     <NuGetPackageImportStamp>
@@ -182,7 +182,7 @@
     <Content Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PhonewordXaml\Phoneword.UI.XamForms.csproj">
+    <ProjectReference Include="..\Phoneword\Phoneword.csproj">
       <Project>{AE367F7F-F6C0-4C6C-B0BB-C24D0EF668FE}</Project>
       <Name>Phoneword.UI.XamForms</Name>
     </ProjectReference>
