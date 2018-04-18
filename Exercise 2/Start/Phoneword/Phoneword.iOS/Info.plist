@@ -15,7 +15,7 @@
     <key>CFBundleDisplayName</key>
     <string>Phoneword</string>
     <key>CFBundleIdentifier</key>
-    <string>com.xamarin.university.phonewordxaml</string>
+    <string>com.xamarin.university.phoneword</string>
     <key>CFBundleVersion</key>
     <string>1.0.1</string>
     <key>CFBundleShortVersionString</key>

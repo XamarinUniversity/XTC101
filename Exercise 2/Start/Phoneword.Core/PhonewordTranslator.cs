@@ -26,7 +26,7 @@ namespace Phoneword.Core
             return newNumber.ToString();
         }
 
-        static bool Contains (this string keyString, char c)
+        static bool Contains(this string keyString, char c)
         {
             return keyString.IndexOf(c) >= 0;
         }

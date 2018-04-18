@@ -10,7 +10,7 @@ using Android.OS;
 using Xamarin.Forms.Platform.Android;
 using Phoneword.UI.XamForms;
 
-namespace PhonewordXaml.Droid
+namespace Phoneword.Droid
 {
     [Activity(Label="Phoneword", Icon="@drawable/translate", MainLauncher=true)]
     public class MainActivity : FormsApplicationActivity

@@ -8,7 +8,7 @@ namespace PertTests
     public class TestPertEstimates
     {
         [Test]
-        public void PertEstimate_CalculationWithPositiveValues_CheckAccuracyIsSuccess ()
+        public void PertEstimate_CalculationWithPositiveValues_CheckAccuracyIsSuccess()
         {
             // Arrange
             double likelyAmount = 20;
@@ -17,11 +17,11 @@ namespace PertTests
             double estimatedResult = 22;
 
             // Act
-            double actualAmount = PertEstimate.Estimate (likelyAmount, 
+            double actualAmount = PertEstimate.Estimate(likelyAmount,
                 bestCaseAmount, worstCaseAmount);
 
             // Assert
-            Assert.AreEqual (estimatedResult, actualAmount);
+            Assert.AreEqual(estimatedResult, actualAmount);
         }
     }
 }

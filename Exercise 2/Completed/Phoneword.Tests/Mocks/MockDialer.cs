@@ -8,8 +8,8 @@ namespace Phoneword.UnitTests.Core.Mocks
     {
         public string LastDialedNumber = null;
         public bool CalledDialer = false;
-            
-       public bool Dial (string number)
+
+       public bool Dial(string number)
        {
           CalledDialer = true;
           LastDialedNumber = number;

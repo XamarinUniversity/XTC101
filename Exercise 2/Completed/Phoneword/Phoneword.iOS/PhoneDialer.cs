@@ -3,11 +3,11 @@ using Phoneword.Core;
 using UIKit;
 using Foundation;
 using Xamarin.Forms;
-using PhonewordXaml.iOS;
+using Phoneword.iOS;
 
 [assembly: Dependency(typeof(PhoneDialer))]
 
-namespace PhonewordXaml.iOS
+namespace Phoneword.iOS
 {
     public class PhoneDialer : IDialer
     {

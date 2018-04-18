@@ -5,11 +5,11 @@ using Android.Content;
 using Android.Telephony;
 using Phoneword.Core;
 using Xamarin.Forms;
-using PhonewordXaml.Droid;
+using Phoneword.Droid;
 
 [assembly: Dependency(typeof(PhoneDialer))]
 
-namespace PhonewordXaml.Droid
+namespace Phoneword.Droid
 {
     public class PhoneDialer : IDialer
     {

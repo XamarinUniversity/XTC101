@@ -100,7 +100,7 @@ namespace Phoneword.Core
 
             try
             {
-                _appViewModel.LogPhoneNumber (_translatedNumber);
+                _appViewModel.LogPhoneNumber(_translatedNumber);
 
                 _appViewModel.Dialer.Dial(_translatedNumber);
             }

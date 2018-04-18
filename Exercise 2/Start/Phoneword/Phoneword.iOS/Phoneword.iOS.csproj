@@ -7,11 +7,11 @@
     <ProjectGuid>{6CF24A99-33FE-4B43-BDAC-855423DA288D}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
-    <RootNamespace>PhonewordXaml.iOS</RootNamespace>
+    <RootNamespace>Phoneword.iOS</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <AssemblyName>PhonewordXaml_iOS</AssemblyName>
+    <AssemblyName>Phoneword_iOS</AssemblyName>
     <TargetFrameworkIdentifier>Xamarin.iOS</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v1.0</TargetFrameworkVersion>
   </PropertyGroup>
@@ -80,7 +80,7 @@
     </IpaPackageName>
     <DefineConstants>DEBUG</DefineConstants>
     <DebugSymbols>true</DebugSymbols>
-    <AssemblyName>PhonewordXaml</AssemblyName>
+    <AssemblyName>Phoneword</AssemblyName>
     <CodesignProvision>0451E86B-70BD-4049-B46C-8F615DE8ABFB</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|iPhone' ">
@@ -91,7 +91,7 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>False</ConsolePause>
     <CodesignKey>iPhone Distribution</CodesignKey>
-    <AssemblyName>PhonewordXaml</AssemblyName>
+    <AssemblyName>Phoneword</AssemblyName>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
   </PropertyGroup>
   <ItemGroup>
