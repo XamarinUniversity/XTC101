@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+    <title>Exercise 1: Creating unit tests</title>
+    <link rel="stylesheet" type="text/css" href="./res/styles/normalize.css">
+    <link rel="stylesheet" type="text/css" href="./res/styles/prettify.css" />
+    <link rel="stylesheet" type="text/css" href="./res/styles/styles.css">
+</head>
+
+<body>
+    <!-- Use the same title as the StartHere -->
+    <header>Introduction to Testing</header>
+
+    <section id="main">
+
+        <h1 id="page-title"></h1>
+
+        <h2>Duration</h2>
+        <p>15 minutes</p>
+
+        <h2>Lab Goals</h2>
+
+        <p>
+            The primary goal of this exercise is to demonstrate the use of NUnit with Visual Studio. This is a <em>demonstration</em> done by the instructor, but the exercise instructions are listed here in order to perform the tests on your own.
+        </p>
+
+        <ide name="xs">
+            <p>
+                This will go through the process of creating a unit test and run the unit test locally to give you a taste of how unit tests are created and executed. To create unit tests in Visual Studio, we begin by creating a NUnit Library Project. While we often create new solutions for projects, a better idea would be to add a new Test project to an existing solution.
+            </p>
+            <p>
+                As mentioned in the lecture, there are a few different ways to create unit test projects. Visual Studio has several built-in project templates you can use. Since we are going to be testing business logic in this example, we will use the full NUnit project type.
+            </p>
+        </ide>
+        <ide name="vs">
+            <p>
+                This will go through the process of creating a unit test and running the unit test locally to give you a taste of how unit tests are created and executed. To create unit tests in Visual Studio, we need to begin by creating a library to house our NUnit project. While we often create new solutions for projects, a better idea would be to add a new Test project to an existing solution.
+            </p>
+            <p>
+                As mentioned in the lecture, there are a few different ways to create unit test projects. Visual Studio has several built-in project templates for other testing frameworks you can use. Since we are going to be testing business logic with NUnit in this example, we will set up a new class library to use the NUnit framework.
+            </p>
+        </ide>
+
+        <h2>Required Assets</h2>
+        <p>
+            There is a completed version of the solution in the <b>Exercise 1</b> folder if you'd like to compare your results, or just run the test.
+        </p>
+
+        <h1>Steps</h1>
+        <p>
+            Lets start by creating the logic for our application by creating a new solution with a single class library in the solution. In this solution we will create a single class library that contains a class that calculates a <a href="http://www.tutorialspoint.com/management_concepts/pert_estimation_technique.htm">PERT estimate</a> based on the best case, worst case and expected case of a project task.
+        </p>
+
+        <ide name="vs"></ide><ide name="xs"></ide>
+
+        <ide name="vs">
+        </ide>
+        <ide name="xs">
+        </ide>
+
+        <ide name="vs"></ide>
+        <ide name="xs"></ide>
+
+        <ol>
+            <li>
+                Create a New Solution with a .NET Standard Class Library as the first project, you can find this template under
+                <ide name="vs"><b>C#</b> > <b>.NET Standard</b> > <b>Class Library (.NET Standard)</b>.</ide>
+                <ide name="xs"><b>.NET Core</b> > <b>Library</b> > <b>.NET Standard Library</b>.</ide>
+                Name it <b>Calculations</b>.
+                <div><ide name="vs"><img src="./res/images/winvs-new-netstandard.png" class="indent-none" /></ide><ide name="xs"><img src="./res/images/macvs-new-netstandard.png" class="indent-none" /></ide></div>
+            </li>
+            <li>
+                Rename the single C# source file to <b>PertEstimate.cs</b>. You can do this by right-clicking on the class <ide name="vs">file in the Solution Explorer and selecting <b>Rename</b></ide><ide name="xs">name and selecting <b>Refactor > Rename</b></ide>. This will also allow you to rename the source file at the same time, which is convenient.
+            </li>
+            <li>
+                Add the following static method to the file. This is what we will be testing.
+<pre class="prettyprint codeblock">
+public static double Estimate(double likelyAmount, double bestCaseAmount,
+    double worstCaseAmount)
+{
+    return (likelyAmount * 4 + bestCaseAmount + worstCaseAmount) / 6;
+}
+</pre>
+            </li>
+            <li>
+                <ide name="vs">
+                    Next, let's add our unit test project. Right click your solution in Solution Explorer and select <b>Add</b> > <b>New Project...</b>.
+                </ide>
+                <ide name="xs">
+                    Next, let's add our unit test project. Right click on your Solution in Visual Studio for Mac and select <b>Add > Add New Project</b>.
+                </ide>
+            </li>
+            <li>
+                <ide name="vs">
+                    From the <b>Visual C#</b> section select the <b>Class Library (.NET Framework)</b> template. Name it <b>PertTests</b> and add that project to your solution.
+                    <div><img src="./res/images/winvs-new-test-project.png" class="indent-none" /></div>
+                </ide>
+                <ide name="xs">
+                    From the <b>Other > .NET</b> section select the <b>NUnit Library Project</b> and add that project to your solution, name it <b>PertTests</b>. This will create your test project as well as your first test fixture.
+                    <div><img src="./res/images/macvs-new-project.png" class="indent-none" /></div>
+                </ide>
+            </li>
+            <ide name="vs">
+                <li>
+                    To get our new project ready for test use, we need to add two new NuGet packages. Right-click the project and choose <b>Manage NuGet Packages...</b>.
+                </li>
+                <li>
+                    In the Browse section, search for <b>"NUnit"</b> and install the latest <b>NUnit</b> and <b>NUnit3TestAdapter</b> packages. With the right infrastructure packages in place, we can start writing tests.
+                </li>
+                <li>
+                    Rename the included source file to <b>Test.cs</b> and open it.
+                </li>
+            </ide>
+            <ide name="xs">
+                <li>Open the new test projects only class file: <b>Test.cs</b>.</li>
+            </ide>
+            <li>
+                Lets create our first unit test to test our <code>Estimate</code> functions results. Replace the existing class file's code with this code:
+<pre class="prettyprint codeblock">
+using Calculations;
+using NUnit.Framework;
+
+namespace PertTests
+{
+    [TestFixture]
+    public class TestPertEstimates
+    {
+        [Test]
+        public void PertEstimate_CalculationWithPositiveValues_CheckAccuracyIsSuccess ()
+        {
+            // Arrange
+            double likelyAmount = 20;
+            double bestCaseAmount = 12;
+            double worstCaseAmount = 40;
+            double estimatedResult = 22;
+
+            // Act
+            double actualAmount = PertEstimate.Estimate (likelyAmount,
+                                            bestCaseAmount, worstCaseAmount);
+
+            // Assert
+            Assert.AreEqual (estimatedResult, actualAmount);
+        }
+    }
+}
+</pre>
+            </li>
+            <li>
+                This is a <code>TestFixture</code> named <b>TestPertEstimates</b> to indicate the system under test, which this class is intended to test. It has a method with the <code>[Test]</code> attribute. These attributes tell NUnit (and the Visual Studio Test Explorer) which methods to run as tests. Each method that you add with the <code>[Test]</code> attribute will automatically become an additional test in your unit test project.
+                <p>You can see that we are following the same model of Arrange > Act > Assert to test that our class follows the core functionality that we need. All your tests should follow this pattern and you should make sure to name your tests appropriately with long, descriptive names so you can tell at a glance what is being tested and what the result should be.</p>
+            </li>
+            <li>
+                Since our test calls the PERT logic in our class library, add a project reference for the test project to use the <b>Calculations</b> project. This will allow us to call the <code>PertEstimate.Estimate</code> method.
+                <ide name="vs">
+                    <p>Right-click the <b>References</b> node of your test project in the Solution Explorer and choose <b>Add Reference...</b>. Select <b>Calculations</b> under the Projects section and click <b>OK</b>.</p>
+                </ide>
+                <ide name="xs">
+                    <p>Right-click the <b>References</b> node of your test project in the Solution pad and choose <b>Edit References...</b>. Select <b>Calculations</b> under the Projects tab and click <b>OK</b>.</p>
+                </ide>
+            </li>
+            <ide name="vs">
+                <li>
+                    Open the Test Explorer from the Visual Studio menu: <b>Test</b> > <b>Windows</b> > <b>Test Explorer</b>.
+                </li>
+                <li>
+                    Build your PertTests project. If you haven't already built your test project at least once, Test Explorer may not show any tests yet.
+                </li>
+                <li>
+                    Inside Test Explorer, click <b>Run All</b> to run your new test. (If you have several tests later, you can also select specific tests to run.) Test Explorer should show our <b>PertEstimate_CalculationWithPositiveValues_CheckAccuracyIsSuccess</b> test with a green check indicating the test passed.
+
+                    <div><img src="./res/images/winvs-testexplorer.png" /></div>
+                </li>
+            </ide>
+            <ide name="xs">
+                <li>
+                    From the Visual Studio menu select <b>View</b> > <b>Pads</b> > <b>Unit Tests</b>. This will display the Unit Tests in your current solution and give you the ability to run or debug unit tests. You can choose to run all the tests by clicking the Run All option, or to run or debug a single test or the tests in a class or namespace, right click on the option and select <b>Run</b> or <b>Debug</b>.
+                    <div class="hintblock">
+                        <b>Note:</b> The <b>Debug</b> choice allows you to debug a test - this can be <em>very</em> helpful when a test is failing and you cannot determine the cause.
+                    </div>
+                </li>
+                <li>
+                    Let's run the test in the Unit Tests tab to see the outcome. Right-click on the Unit Test class in the Unit Tests pad to run the unit test, it should pass and show a green (OK) response.
+
+                    <div><img src="./res/images/macvs-testpad.png" /></div>
+                </li>
+            </ide>
+        </ol>
+
+        <h1>Summary</h1>
+        <p>Congratulations, you have successfully run and created a unit test with NUnit.</p>
+
+        <div class="align-right">
+            <a href="../Start%20Here.html">Go Back</a>
+        </div>
+    </section>
+
+    <script src="./res/js/jquery.min.js"></script>
+    <script src="./res/js/prettify.js"></script>
+    <script src="./res/js/script.js"></script>
+
+    <footer>Copyright (C) 2018 Xamarin Inc., Microsoft.</footer>
+</body>
+</html>
